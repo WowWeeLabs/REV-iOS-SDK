@@ -1,0 +1,425 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B243FFE1C5EEC46002C497A /* WowWeeREVSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B243FFD1C5EEC46002C497A /* WowWeeREVSDK.framework */; };
+		0B24401F1C5EECA7002C497A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2440001C5EECA7002C497A /* AppDelegate.m */; };
+		0B2440201C5EECA7002C497A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B2440011C5EECA7002C497A /* Assets.xcassets */; };
+		0B2440211C5EECA7002C497A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B2440031C5EECA7002C497A /* LaunchScreen.storyboard */; };
+		0B2440221C5EECA7002C497A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B2440051C5EECA7002C497A /* Main.storyboard */; };
+		0B2440231C5EECA7002C497A /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2440081C5EECA7002C497A /* Building.m */; };
+		0B2440241C5EECA7002C497A /* DeviceHub.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B24400A1C5EECA7002C497A /* DeviceHub.m */; };
+		0B2440251C5EECA7002C497A /* DriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B24400C1C5EECA7002C497A /* DriveViewController.m */; };
+		0B2440261C5EECA7002C497A /* GunData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B24400E1C5EECA7002C497A /* GunData.m */; };
+		0B2440271C5EECA7002C497A /* Guns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B24400F1C5EECA7002C497A /* Guns.plist */; };
+		0B2440281C5EECA7002C497A /* joy_left_bk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B2440121C5EECA7002C497A /* joy_left_bk@2x.png */; };
+		0B2440291C5EECA7002C497A /* joy_outerring@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B2440131C5EECA7002C497A /* joy_outerring@2x.png */; };
+		0B24402A1C5EECA7002C497A /* joy_right_bk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B2440141C5EECA7002C497A /* joy_right_bk@2x.png */; };
+		0B24402B1C5EECA7002C497A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B2440151C5EECA7002C497A /* Info.plist */; };
+		0B24402C1C5EECA7002C497A /* JoystickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2440181C5EECA7002C497A /* JoystickView.m */; };
+		0B24402D1C5EECA7002C497A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2440191C5EECA7002C497A /* main.m */; };
+		0B24402E1C5EECA7002C497A /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B24401B1C5EECA7002C497A /* Player.m */; };
+		0B24402F1C5EECA7002C497A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B24401E1C5EECA7002C497A /* ViewController.m */; };
+		0B2440311C5EECED002C497A /* WowWeeREVSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B243FFD1C5EEC46002C497A /* WowWeeREVSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0B2440321C5EECEE002C497A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0B2440311C5EECED002C497A /* WowWeeREVSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0B243FE31C5EEC2E002C497A /* REVSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REVSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B243FFD1C5EEC46002C497A /* WowWeeREVSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WowWeeREVSDK.framework; sourceTree = SOURCE_ROOT; };
+		0B243FFF1C5EECA7002C497A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0B2440001C5EECA7002C497A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0B2440011C5EECA7002C497A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0B2440041C5EECA7002C497A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0B2440061C5EECA7002C497A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		0B2440071C5EECA7002C497A /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
+		0B2440081C5EECA7002C497A /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
+		0B2440091C5EECA7002C497A /* DeviceHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceHub.h; sourceTree = "<group>"; };
+		0B24400A1C5EECA7002C497A /* DeviceHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceHub.m; sourceTree = "<group>"; };
+		0B24400B1C5EECA7002C497A /* DriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveViewController.h; sourceTree = "<group>"; };
+		0B24400C1C5EECA7002C497A /* DriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveViewController.m; sourceTree = "<group>"; };
+		0B24400D1C5EECA7002C497A /* GunData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GunData.h; sourceTree = "<group>"; };
+		0B24400E1C5EECA7002C497A /* GunData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GunData.m; sourceTree = "<group>"; };
+		0B24400F1C5EECA7002C497A /* Guns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Guns.plist; sourceTree = "<group>"; };
+		0B2440121C5EECA7002C497A /* joy_left_bk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_left_bk@2x.png"; sourceTree = "<group>"; };
+		0B2440131C5EECA7002C497A /* joy_outerring@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_outerring@2x.png"; sourceTree = "<group>"; };
+		0B2440141C5EECA7002C497A /* joy_right_bk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_right_bk@2x.png"; sourceTree = "<group>"; };
+		0B2440151C5EECA7002C497A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B2440171C5EECA7002C497A /* JoystickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoystickView.h; sourceTree = "<group>"; };
+		0B2440181C5EECA7002C497A /* JoystickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoystickView.m; sourceTree = "<group>"; };
+		0B2440191C5EECA7002C497A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0B24401A1C5EECA7002C497A /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		0B24401B1C5EECA7002C497A /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		0B24401C1C5EECA7002C497A /* REV-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "REV-Prefix.pch"; sourceTree = "<group>"; };
+		0B24401D1C5EECA7002C497A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0B24401E1C5EECA7002C497A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B243FE01C5EEC2E002C497A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B243FFE1C5EEC46002C497A /* WowWeeREVSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B243FDA1C5EEC2E002C497A = {
+			isa = PBXGroup;
+			children = (
+				0B243FFD1C5EEC46002C497A /* WowWeeREVSDK.framework */,
+				0B243FE51C5EEC2E002C497A /* REVSampleProject */,
+				0B243FE41C5EEC2E002C497A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0B243FE41C5EEC2E002C497A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B243FE31C5EEC2E002C497A /* REVSampleProject.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B243FE51C5EEC2E002C497A /* REVSampleProject */ = {
+			isa = PBXGroup;
+			children = (
+				0B243FFF1C5EECA7002C497A /* AppDelegate.h */,
+				0B2440001C5EECA7002C497A /* AppDelegate.m */,
+				0B2440011C5EECA7002C497A /* Assets.xcassets */,
+				0B2440021C5EECA7002C497A /* Base.lproj */,
+				0B2440071C5EECA7002C497A /* Building.h */,
+				0B2440081C5EECA7002C497A /* Building.m */,
+				0B24401A1C5EECA7002C497A /* Player.h */,
+				0B24401B1C5EECA7002C497A /* Player.m */,
+				0B2440091C5EECA7002C497A /* DeviceHub.h */,
+				0B24400A1C5EECA7002C497A /* DeviceHub.m */,
+				0B24400B1C5EECA7002C497A /* DriveViewController.h */,
+				0B24400C1C5EECA7002C497A /* DriveViewController.m */,
+				0B24400D1C5EECA7002C497A /* GunData.h */,
+				0B24400E1C5EECA7002C497A /* GunData.m */,
+				0B24400F1C5EECA7002C497A /* Guns.plist */,
+				0B2440101C5EECA7002C497A /* Images */,
+				0B2440151C5EECA7002C497A /* Info.plist */,
+				0B2440161C5EECA7002C497A /* Joystick */,
+				0B2440191C5EECA7002C497A /* main.m */,
+				0B24401C1C5EECA7002C497A /* REV-Prefix.pch */,
+				0B24401D1C5EECA7002C497A /* ViewController.h */,
+				0B24401E1C5EECA7002C497A /* ViewController.m */,
+			);
+			path = REVSampleProject;
+			sourceTree = "<group>";
+		};
+		0B2440021C5EECA7002C497A /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				0B2440031C5EECA7002C497A /* LaunchScreen.storyboard */,
+				0B2440051C5EECA7002C497A /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		0B2440101C5EECA7002C497A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0B2440111C5EECA7002C497A /* Joystick */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0B2440111C5EECA7002C497A /* Joystick */ = {
+			isa = PBXGroup;
+			children = (
+				0B2440121C5EECA7002C497A /* joy_left_bk@2x.png */,
+				0B2440131C5EECA7002C497A /* joy_outerring@2x.png */,
+				0B2440141C5EECA7002C497A /* joy_right_bk@2x.png */,
+			);
+			path = Joystick;
+			sourceTree = "<group>";
+		};
+		0B2440161C5EECA7002C497A /* Joystick */ = {
+			isa = PBXGroup;
+			children = (
+				0B2440171C5EECA7002C497A /* JoystickView.h */,
+				0B2440181C5EECA7002C497A /* JoystickView.m */,
+			);
+			path = Joystick;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B243FE21C5EEC2E002C497A /* REVSampleProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B243FFA1C5EEC2E002C497A /* Build configuration list for PBXNativeTarget "REVSampleProject" */;
+			buildPhases = (
+				0B243FDF1C5EEC2E002C497A /* Sources */,
+				0B243FE01C5EEC2E002C497A /* Frameworks */,
+				0B243FE11C5EEC2E002C497A /* Resources */,
+				0B2440321C5EECEE002C497A /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = REVSampleProject;
+			productName = REVSampleProject;
+			productReference = 0B243FE31C5EEC2E002C497A /* REVSampleProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B243FDB1C5EEC2E002C497A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "DavidFF Chan";
+				TargetAttributes = {
+					0B243FE21C5EEC2E002C497A = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 0B243FDE1C5EEC2E002C497A /* Build configuration list for PBXProject "REVSampleProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0B243FDA1C5EEC2E002C497A;
+			productRefGroup = 0B243FE41C5EEC2E002C497A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B243FE21C5EEC2E002C497A /* REVSampleProject */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B243FE11C5EEC2E002C497A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B24402B1C5EECA7002C497A /* Info.plist in Resources */,
+				0B2440221C5EECA7002C497A /* Main.storyboard in Resources */,
+				0B2440281C5EECA7002C497A /* joy_left_bk@2x.png in Resources */,
+				0B2440271C5EECA7002C497A /* Guns.plist in Resources */,
+				0B2440201C5EECA7002C497A /* Assets.xcassets in Resources */,
+				0B24402A1C5EECA7002C497A /* joy_right_bk@2x.png in Resources */,
+				0B2440211C5EECA7002C497A /* LaunchScreen.storyboard in Resources */,
+				0B2440291C5EECA7002C497A /* joy_outerring@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B243FDF1C5EEC2E002C497A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B24402F1C5EECA7002C497A /* ViewController.m in Sources */,
+				0B24402E1C5EECA7002C497A /* Player.m in Sources */,
+				0B24401F1C5EECA7002C497A /* AppDelegate.m in Sources */,
+				0B2440251C5EECA7002C497A /* DriveViewController.m in Sources */,
+				0B24402C1C5EECA7002C497A /* JoystickView.m in Sources */,
+				0B2440231C5EECA7002C497A /* Building.m in Sources */,
+				0B2440241C5EECA7002C497A /* DeviceHub.m in Sources */,
+				0B24402D1C5EECA7002C497A /* main.m in Sources */,
+				0B2440261C5EECA7002C497A /* GunData.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0B2440031C5EECA7002C497A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B2440041C5EECA7002C497A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0B2440051C5EECA7002C497A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B2440061C5EECA7002C497A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0B243FF81C5EEC2E002C497A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0B243FF91C5EEC2E002C497A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0B243FFB1C5EEC2E002C497A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/WowWeeREVSDK.framework",
+				);
+				INFOPLIST_FILE = REVSampleProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wowwee.REVSampleProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0B243FFC1C5EEC2E002C497A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/WowWeeREVSDK.framework",
+				);
+				INFOPLIST_FILE = REVSampleProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wowwee.REVSampleProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B243FDE1C5EEC2E002C497A /* Build configuration list for PBXProject "REVSampleProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B243FF81C5EEC2E002C497A /* Debug */,
+				0B243FF91C5EEC2E002C497A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B243FFA1C5EEC2E002C497A /* Build configuration list for PBXNativeTarget "REVSampleProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B243FFB1C5EEC2E002C497A /* Debug */,
+				0B243FFC1C5EEC2E002C497A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0B243FDB1C5EEC2E002C497A /* Project object */;
+}

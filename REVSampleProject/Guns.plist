@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>gunName</key>
+		<string>Gun A</string>
+		<key>fireSound</key>
+		<integer>4</integer>
+		<key>gotFireSound</key>
+		<integer>5</integer>
+		<key>damage</key>
+		<integer>10</integer>
+		<key>fireResume</key>
+		<real>0.3</real>
+		<key>reloadTime</key>
+		<integer>5</integer>
+		<key>bulletNo</key>
+		<integer>100</integer>
+		<key>allDirection</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>gunName</key>
+		<string>Gun B</string>
+		<key>fireSound</key>
+		<integer>6</integer>
+		<key>gotFireSound</key>
+		<integer>7</integer>
+		<key>damage</key>
+		<integer>5</integer>
+		<key>fireResume</key>
+		<real>0.1</real>
+		<key>reloadTime</key>
+		<integer>5</integer>
+		<key>bulletNo</key>
+		<integer>100</integer>
+		<key>allDirection</key>
+		<true/>
+	</dict>
+</array>
+</plist>
