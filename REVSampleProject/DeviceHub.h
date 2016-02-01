@@ -24,17 +24,14 @@
 
 + (DeviceHub *)sharedInstance;
 + (NSMutableDictionary *) playerList;
++ (Building *)folt;
++ (void)removeFolt;
 
 - (void)removePlayerHash:(NSString *)hashKey;
 - (NSArray *)pendingConnectREVNameList;
 - (NSString *)pendingConnectRAMPName;
-
 - (Player *)connectREVdeviceByIndex:(int)index;
 - (Building *)connectRAMPdevice;
-
-+ (Building *)folt;
-+ (void)removeFolt;
-
 
 - (void)startScan;
 - (void)stopScan;

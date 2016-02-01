@@ -71,7 +71,7 @@ typedef enum : uint8_t {
 typedef enum : uint8_t {
     REVTXFront = 0x01,
     REVTXAll,
-    REVTXPlane,     // Not working yet
+    REVTXPlane,     // Coming soon
 } REVTXDirection;
 
 typedef enum : uint8_t {

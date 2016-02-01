@@ -12,13 +12,8 @@
 
 #import "REVCommandValuesSDK.h"
 #import "REVRobotConstantSDK.h"
-
-
 #import "BluetoothRobot.h"
-
-
 #import "RobotCommand.h"
-
 #import "REVTrackingStatus.h"
 
 @protocol REVRobotDelegateSDK;
@@ -29,9 +24,9 @@ FOUNDATION_EXPORT NSString *const REV_DISCONNECTED_NOTIFICATION_NAME;
 
 typedef enum : NSUInteger {
     UNKNOW = 0,
-    REV,
-    RAMP,
-    LUMI,
+    REV, //REV CAR
+    RAMP, //RAMP
+    LUMI //Coming soon
 } REVType;
 
 @interface REVRobotSDK : BluetoothRobot
@@ -51,11 +46,10 @@ typedef enum : NSUInteger {
 /** REV battery level. From 0 to 1 */
 @property (nonatomic, assign) BOOL isRechargableBattery;
 
-
-
-
 /** Hardware version */
 @property (nonatomic, assign) int voiceChipVersion;
+
+/** Chip version */
 @property (nonatomic, assign) int irChipVersion;
 
 /** REV volume */
@@ -64,8 +58,8 @@ typedef enum : NSUInteger {
 /** Beacon status */
 @property (nonatomic, assign) BOOL beaconFound;
 
+/** REVRobotDelegateSDK delegate */
 @property (nonatomic, weak) id<REVRobotDelegateSDK> REVRobotDelegateSDK_delegate;
-
 
 
 - (void)initVariables;
@@ -110,14 +104,16 @@ typedef enum : NSUInteger {
 
 @optional
 /** Connection Methods **/
+
 - (void)REVDeviceConnected:(REVRobotSDK *)rev;
 - (void)REVDeviceReady:(REVRobotSDK *)rev;
 - (void)REVDeviceDisconnected:(REVRobotSDK *)rev cleanly:(bool)cleanly;
 - (void)REVDeviceFailedToConnect:(REVRobotSDK *)rev error:(NSError *)error;
 - (void)REVDeviceDidReceivedRawData:(REVRobotSDK *)rev data:(NSData*)data;
 
-- (void)REVRobotDidReceiveBump:(REVRobotSDK *)rev;
 
+/**REV device call back **/
+- (void)REVRobotDidReceiveBump:(REVRobotSDK *)rev;
 - (void)REVRobot:(REVRobotSDK *)rev didReceivedTrackingMode:(REVRobotTrackingMode)trackingMode;
 - (void)REVRobot:(REVRobotSDK *)rev didReceivedTrackingStatus:(REVTrackingStatus *)trackingStatus;
 - (void)REVRobot:(REVRobotSDK *)rev didReceivedTrackingDistance:(REVRobotTrackingDistance)trackingDistance trackingSpeed:(REVRobotTrackingSpeed)trackingSpeed;

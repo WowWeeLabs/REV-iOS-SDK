@@ -9,6 +9,7 @@
 
 #import "DriveViewController.h"
 #import "Player.h"
+#import "Building.h"
 #import "DeviceHub.h"
 @interface DriveViewController ()
 
@@ -17,6 +18,7 @@
 @property (nonatomic) CGVector right_movementVector;
 @property (nonatomic, assign) Boolean left_trackingDataSendBack;
 @property (nonatomic, assign) Boolean right_trackingDataSendBack;
+
 @property (weak, nonatomic) Player *left_player;
 @property (weak, nonatomic) Player *right_player;
 
@@ -24,16 +26,16 @@
 @property (strong, nonatomic) IBOutlet UILabel  *rightHealthLevel;
 @property (strong, nonatomic) IBOutlet UILabel  *rightbulletLevel;
 @property (strong, nonatomic) IBOutlet UILabel  *rightStatusLbl;
+@property (strong, nonatomic) IBOutlet UISwitch *rigthAiOnOff;
 
 @property (strong, nonatomic) IBOutlet UIButton *leftShotBtn;
 @property (strong, nonatomic) IBOutlet UILabel  *leftHealthLevel;
 @property (strong, nonatomic) IBOutlet UILabel  *leftbulletLevel;
 @property (strong, nonatomic) IBOutlet UILabel  *leftStatusLbl;
+@property (strong, nonatomic) IBOutlet UISwitch *leftAiOnOff;
 @end
 
 @implementation DriveViewController
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -47,10 +49,9 @@
     [self.rightJoystick setJoystickCenterImage:@"joy_right_bk.png" frameImage: @"joy_outerring.png"];
     [self.rightJoystick setJoystickCenterScale: 0.5];
     [self.rightJoystick setDelegate: self];
-   
+
     _left_trackingDataSendBack = false;
     _right_trackingDataSendBack = false;
-    
     
 }
 
@@ -61,11 +62,10 @@
     _left_player = nil;
     _right_player = nil;
     
-        if ([[self traitCollection] forceTouchCapability] == UIForceTouchCapabilityAvailable)
-            {
-                _rightShotBtn.hidden = true;
-                _leftShotBtn.hidden = true;
-            }
+    if ([[self traitCollection] forceTouchCapability] == UIForceTouchCapabilityAvailable){
+        _rightShotBtn.hidden = true;
+        _leftShotBtn.hidden = true;
+    }
     
     
     // Get first connected mip
@@ -76,19 +76,23 @@
     [_right_player checkStatus];
 
  
-    if ([[DeviceHub  playerList] allValues].count > 1)
-    {
-        self.left_player = ((Player *)[[[DeviceHub playerList] allValues]objectAtIndex:1]);
-        [self.left_player setPlayerLED:REVRobotColorGreen];
-        self.left_player.playerdelegate = self;
-        [_left_player checkStatus];
 
-    }
+    self.left_player = ((Player *)[[[DeviceHub playerList] allValues]objectAtIndex:1]);
+    [self.left_player setPlayerLED:REVRobotColorGreen];
+    self.left_player.playerdelegate = self;
+    [_left_player checkStatus];
+
     
+    if ([DeviceHub folt]) {
+        
+        [[DeviceHub folt] startGame];
+    
+    }
     
     // Joystick timer
     self.joystickTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(joystickTimerCallback) userInfo:nil repeats: true];
 }
+
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
@@ -97,34 +101,28 @@
          [self.left_player.rev revSetTrackingMode:REVTrackingUserControl];
     [self.joystickTimer invalidate];
     self.joystickTimer = nil;
+    
+    
+    if ([DeviceHub folt]) {
+        
+        [[DeviceHub folt] stopGame];
+        
+    }
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)shot:(id)sender {
-    Player * tempPlayer;
-    if (((UIButton *)sender).tag == 0)
-    {
-     tempPlayer = _right_player;
-    }else if (((UIButton *)sender).tag == 1)
-    {
-     tempPlayer = _left_player;
-    }
-
-    [self gunshot:tempPlayer];
-}
 
 -(void)gunshot:(Player *)player{
         [player gunFire];
 }
 
+
 #pragma mark - PlayerDelegate Callback
 -(void)remainHealthLevel:(int)health orgHealth:(int)orgHealth  Player:(Player *)player{
-    NSLog(@"Player rev name %@",player.rev.name);
-    NSLog(@"remainHealthLevel %d",health);
     UILabel * tmpLabel;
     if (player == _left_player) {
         tmpLabel =  _leftHealthLevel;
@@ -134,9 +132,8 @@
     tmpLabel.text = [NSString stringWithFormat:@"Health %d/%d",orgHealth, health];
 }
 
+
 -(void)remainBullet:(int)bullet orgBullet:(int)orgBullet Player:(Player *)player{
-    NSLog(@"Player rev name %@",player.rev.name);
-    NSLog(@"remainBullet %d",bullet);
     UILabel * tmpLabel;
     if (player == _left_player) {
         tmpLabel = _leftbulletLevel;
@@ -146,9 +143,8 @@
     tmpLabel.text = [NSString stringWithFormat:@"Bullet %d/%d",orgBullet, bullet];
 }
 
+
 -(void)status:(NSString *)status Player:(Player *)player{
-    NSLog(@"Player rev name %@",player.rev.name);
-    NSLog(@"remainBullet %@",status);
     UILabel * tmpLabel;
     if (player == _left_player) {
         tmpLabel = _leftStatusLbl;
@@ -157,6 +153,7 @@
     }
     tmpLabel.text = [NSString stringWithFormat:@"%@",status];
 }
+
 
 #pragma mark - Timer Callback
 - (void)joystickTimerCallback {
@@ -167,8 +164,8 @@
     if(self.right_movementVector.dx != 0 || self.right_movementVector.dy != 0){
         [self.right_player playerDrive:self.right_movementVector];
     }
-    
 }
+
 
 #pragma mark - JoystickViewDelegate
 - (void)joystickUpdate:(JoystickView *)joystick vector:(CGVector)vector {
@@ -176,10 +173,40 @@
     self.right_movementVector = CGVectorMake([self.rightJoystick joystickVector].dx, [self.rightJoystick joystickVector].dy);
 }
 
-#pragma mark - Button Actions
+
+#pragma mark - UI interactive
 - (IBAction)backAction:(id)sender {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
+
+
+- (IBAction)shot:(id)sender {
+    Player * tempPlayer;
+    if (((UIButton *)sender).tag == 0)
+    {
+        tempPlayer = _right_player;
+    }else if (((UIButton *)sender).tag == 1)
+    {
+        tempPlayer = _left_player;
+    }
+    
+    [self gunshot:tempPlayer];
+}
+
+
+- (IBAction)aiOnOff:(id)sender {
+    UISwitch * tmpSW = (UISwitch *)sender;
+    if (tmpSW == _leftAiOnOff) {
+        _left_player.aiEnable = tmpSW.on;
+    }
+    else if (tmpSW == _rigthAiOnOff)
+    {
+        _right_player.aiEnable = tmpSW.on;
+    }
+
+}
+
 
 #pragma mark - Touches
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -189,9 +216,9 @@
             // left side
             if(!self.leftJoystick.touchToTrack){
                 if (_left_player != nil){
-                [self.leftJoystick setHidden: false];
-                [self.leftJoystick setCenter: location];
-                [self.leftJoystick setTouchToTrack: touch];
+                    [self.leftJoystick setHidden: false];
+                    [self.leftJoystick setCenter: location];
+                    [self.leftJoystick setTouchToTrack: touch];
                 }
             }
         }
@@ -205,6 +232,7 @@
         }
     }
 }
+
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     for(UITouch *touch in touches){
@@ -230,6 +258,7 @@
     }
 }
 
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     for(UITouch *touch in touches){
         if(touch == self.leftJoystick.touchToTrack){
@@ -242,6 +271,7 @@
         }
     }
 }
+
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     for(UITouch *touch in touches){

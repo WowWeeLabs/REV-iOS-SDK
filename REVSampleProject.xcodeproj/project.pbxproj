@@ -26,6 +26,7 @@
 		0B24402E1C5EECA7002C497A /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B24401B1C5EECA7002C497A /* Player.m */; };
 		0B24402F1C5EECA7002C497A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B24401E1C5EECA7002C497A /* ViewController.m */; };
 		0B2440311C5EECED002C497A /* WowWeeREVSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B243FFD1C5EEC46002C497A /* WowWeeREVSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0B2440381C5F53CC002C497A /* AIAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2440371C5F53CC002C497A /* AIAssistant.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,9 +57,9 @@
 		0B24400A1C5EECA7002C497A /* DeviceHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceHub.m; sourceTree = "<group>"; };
 		0B24400B1C5EECA7002C497A /* DriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveViewController.h; sourceTree = "<group>"; };
 		0B24400C1C5EECA7002C497A /* DriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveViewController.m; sourceTree = "<group>"; };
-		0B24400D1C5EECA7002C497A /* GunData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GunData.h; sourceTree = "<group>"; };
-		0B24400E1C5EECA7002C497A /* GunData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GunData.m; sourceTree = "<group>"; };
-		0B24400F1C5EECA7002C497A /* Guns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Guns.plist; sourceTree = "<group>"; };
+		0B24400D1C5EECA7002C497A /* GunData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GunData.h; path = ../GunData.h; sourceTree = "<group>"; };
+		0B24400E1C5EECA7002C497A /* GunData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GunData.m; path = ../GunData.m; sourceTree = "<group>"; };
+		0B24400F1C5EECA7002C497A /* Guns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Guns.plist; path = ../Guns.plist; sourceTree = "<group>"; };
 		0B2440121C5EECA7002C497A /* joy_left_bk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_left_bk@2x.png"; sourceTree = "<group>"; };
 		0B2440131C5EECA7002C497A /* joy_outerring@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_outerring@2x.png"; sourceTree = "<group>"; };
 		0B2440141C5EECA7002C497A /* joy_right_bk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_right_bk@2x.png"; sourceTree = "<group>"; };
@@ -71,6 +72,8 @@
 		0B24401C1C5EECA7002C497A /* REV-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "REV-Prefix.pch"; sourceTree = "<group>"; };
 		0B24401D1C5EECA7002C497A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0B24401E1C5EECA7002C497A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0B2440361C5F53CC002C497A /* AIAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAssistant.h; sourceTree = "<group>"; };
+		0B2440371C5F53CC002C497A /* AIAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAssistant.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 				0B2440001C5EECA7002C497A /* AppDelegate.m */,
 				0B2440011C5EECA7002C497A /* Assets.xcassets */,
 				0B2440021C5EECA7002C497A /* Base.lproj */,
+				0B2440361C5F53CC002C497A /* AIAssistant.h */,
+				0B2440371C5F53CC002C497A /* AIAssistant.m */,
 				0B2440071C5EECA7002C497A /* Building.h */,
 				0B2440081C5EECA7002C497A /* Building.m */,
 				0B24401A1C5EECA7002C497A /* Player.h */,
@@ -117,16 +122,13 @@
 				0B24400A1C5EECA7002C497A /* DeviceHub.m */,
 				0B24400B1C5EECA7002C497A /* DriveViewController.h */,
 				0B24400C1C5EECA7002C497A /* DriveViewController.m */,
-				0B24400D1C5EECA7002C497A /* GunData.h */,
-				0B24400E1C5EECA7002C497A /* GunData.m */,
-				0B24400F1C5EECA7002C497A /* Guns.plist */,
+				0B24401D1C5EECA7002C497A /* ViewController.h */,
+				0B24401E1C5EECA7002C497A /* ViewController.m */,
 				0B2440101C5EECA7002C497A /* Images */,
 				0B2440151C5EECA7002C497A /* Info.plist */,
 				0B2440161C5EECA7002C497A /* Joystick */,
 				0B2440191C5EECA7002C497A /* main.m */,
 				0B24401C1C5EECA7002C497A /* REV-Prefix.pch */,
-				0B24401D1C5EECA7002C497A /* ViewController.h */,
-				0B24401E1C5EECA7002C497A /* ViewController.m */,
 			);
 			path = REVSampleProject;
 			sourceTree = "<group>";
@@ -134,6 +136,9 @@
 		0B2440021C5EECA7002C497A /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				0B24400D1C5EECA7002C497A /* GunData.h */,
+				0B24400E1C5EECA7002C497A /* GunData.m */,
+				0B24400F1C5EECA7002C497A /* Guns.plist */,
 				0B2440031C5EECA7002C497A /* LaunchScreen.storyboard */,
 				0B2440051C5EECA7002C497A /* Main.storyboard */,
 			);
@@ -247,6 +252,7 @@
 				0B24402E1C5EECA7002C497A /* Player.m in Sources */,
 				0B24401F1C5EECA7002C497A /* AppDelegate.m in Sources */,
 				0B2440251C5EECA7002C497A /* DriveViewController.m in Sources */,
+				0B2440381C5F53CC002C497A /* AIAssistant.m in Sources */,
 				0B24402C1C5EECA7002C497A /* JoystickView.m in Sources */,
 				0B2440231C5EECA7002C497A /* Building.m in Sources */,
 				0B2440241C5EECA7002C497A /* DeviceHub.m in Sources */,
@@ -418,6 +424,7 @@
 				0B243FFC1C5EEC2E002C497A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -33,7 +33,7 @@ Player * selectedPLayer;
 Building * selectedBuilding;
 NSArray * revTrackingMode;
 
-- (void)viewDidLoad {
+- (void)viewDidLoad{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [DeviceHub sharedInstance];
@@ -44,26 +44,22 @@ NSArray * revTrackingMode;
     _StartGame.hidden = true;
     _gunPick.delegate = self;
     _gunPick.dataSource = self;
-    revTrackingMode = [[NSArray alloc]initWithObjects:@"User Control",@"Chase",@"Turret",@"Avoid",@"Becomes Beacon",@"Jumper",nil];
-    
-    
-}
-- (IBAction)reflashPendingDevice:(id)sender {
-    selectedPLayer = nil;
-    [[DeviceHub sharedInstance] reflashPendingDevice];
+    revTrackingMode = [[NSArray alloc]initWithObjects:@"User Control",@"Chase",@"Turret",@"Avoid",@"Beacon",@"Jumper",nil];
 }
 
 
 
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated{
     // We need to wait 1 second to make sure that bluetooth is ready
     [self performSelector:@selector(scan) withObject:nil afterDelay:1];
 }
 
-- (void)scan {
+
+- (void)scan{
     [[DeviceHub sharedInstance] startScan];
 }
+
 
 -(void)updatePlayerView{
     [_playerPanel setHidden:false];
@@ -80,11 +76,9 @@ NSArray * revTrackingMode;
     [tmpStr appendFormat:@"Gun cover \t: %@\n",tmpGun.allDirection?@"All Direction":@"Front"];
     [_GunProfile setText:tmpStr];
     
-
-    
     REVRobotTrackingMode tmpTrackMode = selectedPLayer.trackMode;
     if (tmpTrackMode == 0){
-        tmpTrackMode = REVTrackingUserControl;
+        tmpTrackMode = REVTrackingBeacon;
     }
     
     int tmpIndex;
@@ -115,67 +109,11 @@ NSArray * revTrackingMode;
     [_playerModePick selectRow:tmpIndex inComponent:0 animated:false];
 }
 
-#pragma marks tables handle
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [[DeviceHub sharedInstance] pendingConnectREVNameList].count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    UITableViewCell * temp = [[UITableViewCell alloc]init];
-    
-    temp.textLabel.text = [[[DeviceHub sharedInstance] pendingConnectREVNameList] objectAtIndex:indexPath.row];
-    
-    
-    return temp;
-}
-- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UILabel * tmpLabel = [[UILabel alloc]init];
-    tmpLabel.text = @" Please select rev";
-    
-    return tmpLabel;
-    
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    selectedPLayer =  [[DeviceHub sharedInstance] connectREVdeviceByIndex:(int)indexPath.row];
-    selectedPLayer.playerdelegate = self;
-    [self updatePlayerView];
-    
-}
-- (IBAction)disconnect_selectedPlayer:(id)sender {
-    
-    if (selectedPLayer) {
-        [selectedPLayer.rev disconnect];
-         [_playerPanel setHidden:true];
-    }
-}
 
 
-- (IBAction)connectBuilding:(id)sender {
-    selectedBuilding = [[DeviceHub sharedInstance] connectRAMPdevice];
-}
-
-- (IBAction)disconnect_selectedBuilding:(id)sender {
-    
-    if (selectedBuilding){
-        [selectedBuilding.ramp disconnect];
-        [_buildingPanel setHidden:true];
-    }
-    
-}
-
-- (IBAction)jumperOnOff:(id)sender {
-    
-    selectedBuilding.jumperOnOff = ((UISwitch *)sender).on;
-}
 #pragma marks DeviceHubDelegate call back
-
-
 -(void)reloadPendingDeviceList{
     [_deviceListTable reloadData];
 
@@ -184,8 +122,8 @@ NSArray * revTrackingMode;
     [_BuildingBtn setTitle:tmpName forState:UIControlStateNormal];
 }
 
--(void)selectedDeviceIndex:(int)index Player:(Player *)player
-{
+
+-(void)selectedDeviceIndex:(int)index Player:(Player *)player{
     if (!player){
         [[DeviceHub sharedInstance] connectREVdeviceByIndex:index];
     }
@@ -193,9 +131,7 @@ NSArray * revTrackingMode;
 }
 
 
-
--(void)playerListChange
-{
+-(void)playerListChange{
     if ( [[DeviceHub playerList] count] == 2)
     {
         _StartGame.hidden = false;
@@ -204,12 +140,14 @@ NSArray * revTrackingMode;
     }
 }
 
+
 -(void)buildingChange{
     _buildingPanel.hidden = false;
     [_jumperOnOffSW setOn:selectedBuilding.jumperOnOff];
 }
 
-#pragma marks playerDelegate
+
+#pragma mark - PlayerDelegate Callback
 -(void)gunDemoMessage:(NSString *)message{
     NSMutableString * tmp = [[NSMutableString alloc] initWithString:_GunProfile.text];
     [tmp appendFormat:@"%@ \n",message];
@@ -217,11 +155,14 @@ NSArray * revTrackingMode;
     _GunProfile.text = tmp;
 }
 
-#pragma marks gunPicker
+
+#pragma marks Picker handler
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
     
     return 1;
 }
+
+
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
     
     if ((thePickerView == _gunPick) || (thePickerView == _buildingGunPick))
@@ -235,6 +176,7 @@ NSArray * revTrackingMode;
     return 1;
 }
 
+
 - (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if ((thePickerView == _gunPick) || (thePickerView == _buildingGunPick))
     {
@@ -246,6 +188,7 @@ NSArray * revTrackingMode;
     }
     return @"";
 }
+
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
@@ -288,6 +231,80 @@ NSArray * revTrackingMode;
         [selectedPLayer setREVTrackMode:tmpTrackMode];
     }
 
+}
+
+
+#pragma marks table dataSource and activity handle
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [[DeviceHub sharedInstance] pendingConnectREVNameList].count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell * temp = [[UITableViewCell alloc]init];
+    
+    temp.textLabel.text = [[[DeviceHub sharedInstance] pendingConnectREVNameList] objectAtIndex:indexPath.row];
+    
+    
+    return temp;
+}
+
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel * tmpLabel = [[UILabel alloc]init];
+    tmpLabel.text = @" Please select rev";
+    
+    return tmpLabel;
+    
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    selectedPLayer =  [[DeviceHub sharedInstance] connectREVdeviceByIndex:(int)indexPath.row];
+    selectedPLayer.playerdelegate = self;
+    [self updatePlayerView];
+    
+}
+
+
+#pragma mark - UI interactive
+- (IBAction)reflashPendingDevice:(id)sender{
+    selectedPLayer = nil;
+    [[DeviceHub sharedInstance] reflashPendingDevice];
+}
+
+
+- (IBAction)disconnect_selectedPlayer:(id)sender {
+    
+    if (selectedPLayer) {
+        [selectedPLayer.rev disconnect];
+        [_playerPanel setHidden:true];
+    }
+}
+
+
+- (IBAction)connectBuilding:(id)sender {
+    selectedBuilding = [[DeviceHub sharedInstance] connectRAMPdevice];
+    [_buildingPanel setHidden:false];
+}
+
+
+- (IBAction)disconnect_selectedBuilding:(id)sender {
+    
+    if (selectedBuilding){
+        [selectedBuilding.ramp disconnect];
+        [_buildingPanel setHidden:true];
+    }
+    
+}
+
+
+- (IBAction)jumperOnOff:(id)sender {
+    
+    selectedBuilding.jumperOnOff = ((UISwitch *)sender).on;
 }
 
 @end

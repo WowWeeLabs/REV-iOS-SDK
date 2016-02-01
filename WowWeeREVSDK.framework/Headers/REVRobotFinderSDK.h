@@ -38,14 +38,11 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, assign) uint16_t scanFoundProductId;
 
-/**
- Starts the BLE scanning
- */
+/** Starts the BLE scanning */
 -(void)scanForREV;
 -(void)startScan;
-/**
- Starts the BLE scanning for a specified number of seconds. Normally you should use this method because endlessly scanning is very battery intensive.
- */
+
+/** Starts the BLE scanning for a specified number of seconds. Normally you should use this method because endlessly scanning is very battery intensive. */
 -(void)scanForREVForDuration:(NSUInteger)seconds;
 -(void)stopScanForREV;
 -(void)clearFoundREVList;
@@ -54,9 +51,11 @@ typedef enum : NSUInteger {
  Quick access to first connected MiP in mipsConnected list
  @return devicesConnected[0] or nil if devicesConnected is empty
  */
+
 -(REVRobotSDK *)firstConnectedREV;
 -(NSMutableArray *)revFound;
 
 -(void) postNotification:(REVRobotFinderNotificationValue)broadcast;
 -(void) postNotification:(REVRobotFinderNotificationValue)broadcast withData:(id)data ;
+
 @end

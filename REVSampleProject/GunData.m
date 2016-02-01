@@ -21,19 +21,24 @@ static NSArray * gunsListArray;
         NSArray * gunFromFile =  [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Guns.plist" ofType:nil ]];
         NSMutableArray * tmpArry = [[NSMutableArray alloc]init];
         
+        int gunIDLimit = 15 ; //Gun ID is limited 0 ~ 14
+        int index = 0;
+        
         for (NSDictionary * tmpDic in gunFromFile)
         {
-            GunData * tmpGunData = [[GunData alloc]init];
-            tmpGunData.gunName = [tmpDic objectForKey:@"gunName"] ;
-            tmpGunData.fireSound = [[tmpDic objectForKey:@"fireSound"] integerValue];
-            tmpGunData.gotFireSound = [[tmpDic objectForKey:@"gotFireSound"] integerValue];
-            tmpGunData.damage = (int)[[tmpDic objectForKey:@"damage"] integerValue];
-            tmpGunData.fireResume = [[tmpDic objectForKey:@"fireResume"] floatValue];
-            tmpGunData.reloadTime = [[tmpDic objectForKey:@"reloadTime"] floatValue];
-            tmpGunData.bulletNo = (int)[[tmpDic objectForKey:@"bulletNo"] integerValue];
-            tmpGunData.allDirection = [[tmpDic objectForKey:@"allDirection"] boolValue];
-            
-            [tmpArry addObject:tmpGunData];
+            if (index < gunIDLimit)
+            {
+                GunData * tmpGunData = [[GunData alloc]init];
+                tmpGunData.gunName = [tmpDic objectForKey:@"gunName"] ;
+                tmpGunData.fireSound = [[tmpDic objectForKey:@"fireSound"] integerValue]; //Sound file index (1~106)
+                tmpGunData.gotFireSound = [[tmpDic objectForKey:@"gotFireSound"] integerValue]; //Sound file index (1~106)
+                tmpGunData.damage = (int)[[tmpDic objectForKey:@"damage"] integerValue];
+                tmpGunData.fireResume = [[tmpDic objectForKey:@"fireResume"] floatValue];
+                tmpGunData.reloadTime = [[tmpDic objectForKey:@"reloadTime"] floatValue];
+                tmpGunData.bulletNo = (int)[[tmpDic objectForKey:@"bulletNo"] integerValue];
+                tmpGunData.allDirection = [[tmpDic objectForKey:@"allDirection"] boolValue];
+                [tmpArry addObject:tmpGunData];
+            }
         }
         
         gunsListArray = tmpArry;

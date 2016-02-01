@@ -29,17 +29,31 @@ static Building * theFolk;
     dispatch_once(&p, ^{
         _sharedObject = [[self alloc] init];
         playerListDic = [[NSMutableDictionary alloc]init];
-        [REVRobotFinderSDK sharedInstance];  
+        [REVRobotFinderSDK sharedInstance];  ///Dd
     });
     
     // returns the same object each time
     return _sharedObject;
 }
 
+
 + (NSMutableDictionary *) playerList{
-    
     return playerListDic;
 }
+
+
++ (Building *)folt{
+    
+    
+    return theFolk;
+    
+}
+
+
++(void)removeFolt{
+    theFolk = nil;
+}
+
 
 - (NSArray *)pendingConnectREVNameList{
 
@@ -50,8 +64,6 @@ static Building * theFolk;
     {
         [tempDeviceNameArray addObject:tmpRev.name];
     }
-    
-    
     return tempDeviceNameArray;
 }
 
@@ -66,6 +78,7 @@ static Building * theFolk;
     }
 }
 
+
 -(void)reflashPendingDevice{
 
     [[REVRobotFinderSDK sharedInstance] clearFoundREVList];
@@ -74,19 +87,13 @@ static Building * theFolk;
     
 }
 
+
 - (void)removePlayerHash:(NSString *)hashKey{
     [self reflashPendingDevice];
     [playerListDic removeObjectForKey:hashKey];
     [_deviceHubDelegate playerListChange];
 }
 
-+ (Building *)folt{
-    return theFolk;
-}
-
-+(void)removeFolt{
-    theFolk = nil;
-}
 
 - (void)startScan{
     [self addNotificationObservers];
@@ -94,22 +101,30 @@ static Building * theFolk;
     [[REVRobotFinderSDK sharedInstance] scanForREV];
 }
 
+
 -(void)stopScan{
     [[REVRobotFinderSDK sharedInstance] stopScanForREV];
     [self removeNotificationObservers];
 }
 
+
 - (void)addNotificationObservers {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(revFoundNotification:) name:REVRobotFinderNotificationID object:nil];
 }
+
 
 - (void)removeNotificationObservers {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:REVRobotFinderNotificationID object:nil];
 }
 
+
 -(void)revFoundNotification:(NSNotification *)note {
+    //NSLog(@"-(void)revFoundNotification:(NSNotification *)note ");
+    
     [_deviceHubDelegate reloadPendingDeviceList];
+    
 }
+
 
 - (Player *)connectREVdeviceByIndex:(int)index{
     
@@ -119,18 +134,22 @@ static Building * theFolk;
     
     if (!tmpPlayer)
     {
+    
     tmpPlayer  = [[Player alloc]init];
     tmpPlayer.rev = [[[REVRobotFinderSDK sharedInstance]devicesFound]objectAtIndex:index];
     [tmpPlayer.rev connect];
     
     NSString * revHash = [NSString stringWithFormat:@"%lu",(unsigned long)tmpPlayer.rev.hash];
     [playerListDic setObject:tmpPlayer forKey:revHash];
+    
+        
     }
     
     [_deviceHubDelegate playerListChange];
     return tmpPlayer;
     
 }
+
 
 - (Building *)connectRAMPdevice{
     REVRobotSDK * tmpDevice = [[[REVRobotFinderSDK sharedInstance]rampsFound]objectAtIndex:0];

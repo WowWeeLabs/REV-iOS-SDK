@@ -16,7 +16,6 @@ typedef enum {
 } REVFinderScanOptions;
 
 #ifndef REV_SCAN_OPTIONS
-//#define REV_SCAN_OPTIONS RPFScanOptionMask_ShowAllDevices | RPFScanOptionMask_FilterByProductId | RPFScanOptionMask_FilterByServices
 #define REV_SCAN_OPTIONS RPFScanOptionMask_ShowAllDevices | RPFScanOptionMask_FilterByProductId
 #endif
 
