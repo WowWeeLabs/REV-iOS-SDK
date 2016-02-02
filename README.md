@@ -13,8 +13,8 @@ Table of Contents
 - [Quick Installation](#quick-installation)
 - [Using the SDK](#using-the-sdk)
 	- [Scan and Connect REVs](#scan-and-connect-revs)
-	- [Control REV](#control-revs)
-	- [Game rule and AI](#game-rule-and-ai-revs)
+	- [Control REV](#control-rev)
+	- [Game rule and AI](#game-rule-and-ai)
 - [Notes about the SDK](#notes-about-the-sdk)
 - [License](#license)
 - [Contributing](#contributing)
@@ -139,6 +139,8 @@ Using the SDK
 				return tmpPlayer;
 	
 			}
+			
+			
 #Control REV
 	
 				[_rev revDrive:vector]; //Call REVRobot - (void)revDrive:(CGVector)vector; to drive the car.
@@ -146,7 +148,9 @@ Using the SDK
 			
 			    [_rev revSendIRCommand:_player_gunID  soundIndex:_player_gunFireSound  direction:_player_gunDirection]; //Send IR by gun_id and play the sound.
 			    
+
 #Game rule and AI
+
 		Game rule is define in "Player" class and the guns characteristics define in "GunData" class and "Guns.plist"
 		1. Each gun have defined limited 	
 			bullet number, 
