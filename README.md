@@ -206,7 +206,7 @@ Yes we have provided the source code in our sample project, feel free to use thi
 
 License
 ---------------------------------
-MiPosaur iOS SDK is available under the Apache License, Version 2.0 license. See the [LICENSE.txt](https://raw.githubusercontent.com/WowWeeLabs/MiPosaur-iOS-SDK/master/LICENSE.md) file for more info.
+REV iOS SDK is available under the Apache License, Version 2.0 license. See the [LICENSE.txt](https://raw.githubusercontent.com/WowWeeLabs/REV-iOS-SDK/master/LICENSE.md) file for more info.
 
 You are free to use our SDK in your own projects whether free or paid. There are no restrictions on releasing into the Apple App Store or Google Play.
 
