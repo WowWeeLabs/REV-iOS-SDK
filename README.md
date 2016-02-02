@@ -152,7 +152,7 @@ Using the SDK
 	#Game rule and AI
 
 		Game rule is define in "Player" class and the guns characteristics define in "GunData" class and "Guns.plist"
-		1. Each gun have defined limited 	
+		1. Each gun have defined 	
 			bullet number, 
 			damage power, 
 			fire direction (All 4 sides / only front side), 
@@ -163,7 +163,7 @@ Using the SDK
 		2. Each player have defined
 			only one gun
 			100 health point
-			All health point gone the car need stop 10 sec 
+			Once health point <= 0 the car need stop 10 sec 
 	
 		Base on above rule and player status the AI assistant will decide change the REV device tracking mode
 			e.g. 
