@@ -11,9 +11,9 @@ Table of Contents
 ---------------------------------------
 
 - [Quick Installation](#quick-installation)
-- [Using the SDK](#using-the-sdk)(coming soon)
-	- [Scan and Connect REVs](#finding-revs)(coming soon)
-	- [Control REV](#control-revs)(coming soon)
+- [Using the SDK](#using-the-sdk)
+	- [Scan and Connect REVs](#finding-revs)
+	- [Control REV](#control-revs)
 	- [Game rule and AI](#game-rule-and-ai-revs)(coming soon)
 - [Notes about the SDK](#notes-about-the-sdk)
 - [License](#license)
@@ -51,9 +51,96 @@ Alternatively you can add this line into your Project-Prefix.pch (e.g. _REV-Pref
 6. Check that the project compiles successfully after completing the above steps by pressing ⌘+b in Xcode to build the project. The project should build successfully.
 
 7. Choose the classes you want to handle the delegate callbacks from a REV Robot, these classes will receive callbacks for when events happen (such as finding a new robot, robot connected, robot falls over etc) in this case we will simply choose our DeviceHub class.
+	Scan and Connect REVs
 
-	........
+		Scan
+			- (void)startScan{
+				[self addNotificationObservers];
+				((REVRobotFinderSDK *)[REVRobotFinderSDK sharedInstance]).scanOptionsFlagMask = RPFScanOptionMask_FilterByProductId;
+				[[REVRobotFinderSDK sharedInstance] scanForREV];
+			}
+
+
+			-(void)stopScan{
+				[[REVRobotFinderSDK sharedInstance] stopScanForREV];
+				[self removeNotificationObservers];
+			}
+
+
+			- (void)addNotificationObservers {
+				[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(revFoundNotification:) name:REVRobotFinderNotificationID object:nil];
+			}
+
+
+			- (void)removeNotificationObservers {
+				[[NSNotificationCenter defaultCenter] removeObserver:self name:REVRobotFinderNotificationID object:nil];
+			}
+
+
+		Connect directly when found available device via -(void)revFoundNotification:(NSNotification *)note
 	
+			-(void)revFoundNotification:(NSNotification *)note {
+	
+
+				NSDictionary *noteDict = note.userInfo;
+				if (!noteDict || !noteDict[@"code"]) {
+					return;
+				}
+	
+				 NSUInteger noteType = [noteDict[@"code"] integerValue];
+	
+				if (noteType == REVRobotFinder_REVFound) {
+					REVRobotSDK *rev = noteDict[@"data"];
+		
+					// Before connecting we want to setup which class is going to handle callbacks, for simplicity we are going to use this class for everything but normally you might use a different class
+					rev.REVRobotDelegateSDK_delegate = self;
+		
+					[rev connect];
+				} else if (noteType == REVRobotFinder_BluetoothError) {
+					CBCentralManagerState errorCode = (CBCentralManagerState)[noteDict[@"data"] integerValue];
+					if (errorCode == CBCentralManagerStateUnsupported) {
+						NSLog(@"Bluetooth Unsupported on this device");
+			
+					} else if (errorCode == CBCentralManagerStatePoweredOff) {
+						NSLog(@"Bluetooth is turned off");
+		   
+					}
+				} 
+			}
+
+		Connect via devices array [[REVRobotFinderSDK sharedInstance]devicesFound] 
+			- (Player *)connectREVdeviceByIndex:(int)index{
+    
+				REVRobotSDK * tmpDevice = [[[REVRobotFinderSDK sharedInstance]devicesFound]objectAtIndex:index];
+				NSString * revHash = [NSString stringWithFormat:@"%lu",(unsigned long)tmpDevice.hash];
+				Player * tmpPlayer = [playerListDic objectForKey:revHash];
+	
+				if (!tmpPlayer)
+				{
+	
+				tmpPlayer  = [[Player alloc]init];
+				tmpPlayer.rev = [[[REVRobotFinderSDK sharedInstance]devicesFound]objectAtIndex:index];
+				[tmpPlayer.rev connect];
+	
+				NSString * revHash = [NSString stringWithFormat:@"%lu",(unsigned long)tmpPlayer.rev.hash];
+				[playerListDic setObject:tmpPlayer forKey:revHash];
+	
+		
+				}
+	
+	
+				[_deviceHubDelegate playerListChange];
+				return tmpPlayer;
+	
+			}
+	Control REV
+	
+				[_rev revDrive:vector]; //Call REVRobot - (void)revDrive:(CGVector)vector; to drive the car.
+				
+			
+			    [_rev revSendIRCommand:_player_gunID  soundIndex:_player_gunFireSound  direction:_player_gunDirection]; //Send IR by gun_id and play the sound.
+			    
+			    
 8. You should be now ready to go! Plug in an iOS device then compile and run the project using ⌘+r . When you turn on a MiPosaur you should see some debug messages in the logs.
 
 
