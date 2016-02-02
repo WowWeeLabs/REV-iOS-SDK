@@ -62,7 +62,26 @@ static Building * theFolk;
     
     for(REVRobotSDK * tmpRev in [REVRobotFinderSDK sharedInstance].devicesFound)
     {
-        [tempDeviceNameArray addObject:tmpRev.name];
+        
+        
+        NSString * revHash = [NSString stringWithFormat:@"%lu",(unsigned long)tmpRev.hash];
+        if ([playerListDic objectForKey:revHash])
+        {
+            if ([revHash isEqualToString:[[playerListDic allKeys]objectAtIndex:0]] )
+            {
+            [tempDeviceNameArray addObject:[NSString stringWithFormat:@"→ %@",tmpRev.name]];
+            }else if (([playerListDic allKeys].count > 1)&&([revHash isEqualToString:[[playerListDic allKeys]objectAtIndex:1]] ))
+            {
+            [tempDeviceNameArray addObject:[NSString stringWithFormat:@"← %@",tmpRev.name]];
+            }else
+            {
+            [tempDeviceNameArray addObject:[NSString stringWithFormat:@"* %@",tmpRev.name]];
+            }
+            
+        }else{
+            [tempDeviceNameArray addObject:tmpRev.name];
+        }
+        
     }
     return tempDeviceNameArray;
 }
@@ -144,6 +163,7 @@ static Building * theFolk;
     
         
     }
+    
     
     [_deviceHubDelegate playerListChange];
     return tmpPlayer;

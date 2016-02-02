@@ -266,6 +266,7 @@ NSArray * revTrackingMode;
     selectedPLayer =  [[DeviceHub sharedInstance] connectREVdeviceByIndex:(int)indexPath.row];
     selectedPLayer.playerdelegate = self;
     [self updatePlayerView];
+    [self reloadPendingDeviceList];
     
 }
 
