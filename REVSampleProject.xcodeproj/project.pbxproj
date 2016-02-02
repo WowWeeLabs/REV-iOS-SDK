@@ -57,9 +57,9 @@
 		0B24400A1C5EECA7002C497A /* DeviceHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceHub.m; sourceTree = "<group>"; };
 		0B24400B1C5EECA7002C497A /* DriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveViewController.h; sourceTree = "<group>"; };
 		0B24400C1C5EECA7002C497A /* DriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveViewController.m; sourceTree = "<group>"; };
-		0B24400D1C5EECA7002C497A /* GunData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GunData.h; path = ../GunData.h; sourceTree = "<group>"; };
-		0B24400E1C5EECA7002C497A /* GunData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GunData.m; path = ../GunData.m; sourceTree = "<group>"; };
-		0B24400F1C5EECA7002C497A /* Guns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Guns.plist; path = ../Guns.plist; sourceTree = "<group>"; };
+		0B24400D1C5EECA7002C497A /* GunData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GunData.h; sourceTree = "<group>"; };
+		0B24400E1C5EECA7002C497A /* GunData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GunData.m; sourceTree = "<group>"; };
+		0B24400F1C5EECA7002C497A /* Guns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Guns.plist; sourceTree = "<group>"; };
 		0B2440121C5EECA7002C497A /* joy_left_bk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_left_bk@2x.png"; sourceTree = "<group>"; };
 		0B2440131C5EECA7002C497A /* joy_outerring@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_outerring@2x.png"; sourceTree = "<group>"; };
 		0B2440141C5EECA7002C497A /* joy_right_bk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "joy_right_bk@2x.png"; sourceTree = "<group>"; };
@@ -112,6 +112,9 @@
 				0B2440001C5EECA7002C497A /* AppDelegate.m */,
 				0B2440011C5EECA7002C497A /* Assets.xcassets */,
 				0B2440021C5EECA7002C497A /* Base.lproj */,
+				0B24400D1C5EECA7002C497A /* GunData.h */,
+				0B24400E1C5EECA7002C497A /* GunData.m */,
+				0B24400F1C5EECA7002C497A /* Guns.plist */,
 				0B2440361C5F53CC002C497A /* AIAssistant.h */,
 				0B2440371C5F53CC002C497A /* AIAssistant.m */,
 				0B2440071C5EECA7002C497A /* Building.h */,
@@ -136,9 +139,6 @@
 		0B2440021C5EECA7002C497A /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				0B24400D1C5EECA7002C497A /* GunData.h */,
-				0B24400E1C5EECA7002C497A /* GunData.m */,
-				0B24400F1C5EECA7002C497A /* Guns.plist */,
 				0B2440031C5EECA7002C497A /* LaunchScreen.storyboard */,
 				0B2440051C5EECA7002C497A /* Main.storyboard */,
 			);
@@ -319,7 +319,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -357,7 +357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
