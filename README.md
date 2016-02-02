@@ -14,7 +14,7 @@ Table of Contents
 - [Using the SDK](#using-the-sdk)
 	- [Scan and Connect REVs](#finding-revs)
 	- [Control REV](#control-revs)
-	- [Game rule and AI](#game-rule-and-ai-revs)(coming soon)
+	- [Game rule and AI](#game-rule-and-ai-revs)
 - [Notes about the SDK](#notes-about-the-sdk)
 - [License](#license)
 - [Contributing](#contributing)
@@ -49,9 +49,15 @@ Also make that the framework is present under the _"Link Binary With Libraries"_
 Alternatively you can add this line into your Project-Prefix.pch (e.g. _REV-Prefix.pch_) file so that you don't need to import in each class your planning to use the SDK in.
 	
 6. Check that the project compiles successfully after completing the above steps by pressing ⌘+b in Xcode to build the project. The project should build successfully.
+			
+7. You should be now ready to go! Plug in an iOS device then compile and run the project using ⌘+r . When you turn on a MiPosaur you should see some debug messages in the logs.
+
+
+Using the SDK
+---------------------------------
 
 7. Choose the classes you want to handle the delegate callbacks from a REV Robot, these classes will receive callbacks for when events happen (such as finding a new robot, robot connected, robot falls over etc) in this case we will simply choose our DeviceHub class.
-	Scan and Connect REVs
+Scan and Connect REVs
 
 		Scan
 			- (void)startScan{
@@ -133,26 +139,35 @@ Alternatively you can add this line into your Project-Prefix.pch (e.g. _REV-Pref
 				return tmpPlayer;
 	
 			}
-	Control REV
+Control REV
 	
 				[_rev revDrive:vector]; //Call REVRobot - (void)revDrive:(CGVector)vector; to drive the car.
 				
 			
 			    [_rev revSendIRCommand:_player_gunID  soundIndex:_player_gunFireSound  direction:_player_gunDirection]; //Send IR by gun_id and play the sound.
 			    
-			    
-8. You should be now ready to go! Plug in an iOS device then compile and run the project using ⌘+r . When you turn on a MiPosaur you should see some debug messages in the logs.
-
-
-Using the SDK
----------------------------------
-
-### Scan and Connect REVs
- Coming Soon
-
-#### Control REV
- Coming Soon
- 
+Game rule and AI
+		Game rule is define in "Player" class and the guns characteristics define in "GunData" class and "Guns.plist"
+		1. Each gun have defined limited 	
+			bullet number, 
+			damage power, 
+			fire direction (All 4 sides / only front side), 
+			gun resume time,
+			bullet reload time,
+			fire sound and 
+			got fire sound
+		2. Each player have defined
+			only one gun
+			100 health point
+			All health point gone the car need stop 10 sec 
+		
+		Base on above rule and player status the AI assistant will decide change the REV device tracking mode
+			e.g. 
+			REVTrackingChase tracking the non AI car and shot
+			REVTrackingAvoid avoid the non AI car
+			etc...
+		
+		** the non AI car must be REVTrackingBeacon mode to let AI car detect it location
  
 Notes about the SDK
 ---------------------------------
