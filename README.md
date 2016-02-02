@@ -57,7 +57,7 @@ Using the SDK
 ---------------------------------
 
 7. Choose the classes you want to handle the delegate callbacks from a REV Robot, these classes will receive callbacks for when events happen (such as finding a new robot, robot connected, robot falls over etc) in this case we will simply choose our DeviceHub class.
-#Scan and Connect REVs
+	#Scan and Connect REVs
 
 		Scan
 			- (void)startScan{
@@ -141,7 +141,7 @@ Using the SDK
 			}
 			
 			
-#Control REV
+	#Control REV
 	
 				[_rev revDrive:vector]; //Call REVRobot - (void)revDrive:(CGVector)vector; to drive the car.
 				
@@ -149,7 +149,7 @@ Using the SDK
 			    [_rev revSendIRCommand:_player_gunID  soundIndex:_player_gunFireSound  direction:_player_gunDirection]; //Send IR by gun_id and play the sound.
 			    
 
-#Game rule and AI
+	#Game rule and AI
 
 		Game rule is define in "Player" class and the guns characteristics define in "GunData" class and "Guns.plist"
 		1. Each gun have defined limited 	
@@ -164,13 +164,13 @@ Using the SDK
 			only one gun
 			100 health point
 			All health point gone the car need stop 10 sec 
-		
+	
 		Base on above rule and player status the AI assistant will decide change the REV device tracking mode
 			e.g. 
 			REVTrackingChase tracking the non AI car and shot
 			REVTrackingAvoid avoid the non AI car
 			etc...
-		
+	
 		** the non AI car must be REVTrackingBeacon mode to let AI car detect it location
  
 Notes about the SDK
