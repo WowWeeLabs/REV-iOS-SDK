@@ -26,7 +26,9 @@ typedef enum : NSUInteger {
     UNKNOW = 0,
     REV, //REV CAR
     RAMP, //RAMP
-    LUMI //Coming soon
+    LUMI, //Coming soon
+    REVAIR,
+    REV2, //REV2 CAR
 } REVType;
 
 @interface REVRobotSDK : BluetoothRobot
@@ -61,7 +63,6 @@ typedef enum : NSUInteger {
 /** REVRobotDelegateSDK delegate */
 @property (nonatomic, weak) id<REVRobotDelegateSDK> REVRobotDelegateSDK_delegate;
 
-
 - (void)initVariables;
 
 #pragma mark - REV Commands
@@ -75,6 +76,7 @@ typedef enum : NSUInteger {
 - (void)revPlaySound:(uint8_t)soundByte;
 - (void)revPlaySound:(uint8_t)soundByte repeatTimes:(uint8_t)repeatTimes;
 - (void)revSetTrackingMode:(REVRobotTrackingMode)trackingMode;
+- (void)revSetTrackingMode:(REVRobotTrackingMode)trackingMode param:(uint8_t)param;     // For REV2 cars
 - (void)revGetTrackingMode;
 - (void)revSetTrackingSensorStatusNotifyEnabled:(BOOL)notifyEnabled;
 - (void)revSetTrackingDistance:(REVRobotTrackingDistance)trackingDistance trackingSpeed:(REVRobotTrackingSpeed)trackingSpeed;
@@ -94,6 +96,10 @@ typedef enum : NSUInteger {
 - (void)revGetSoundVolume;
 - (void)revGetMotorVoltage;
 - (void)revSetTraction:(REVTraction)traction;
+- (void)revSetSkyTXPower:(float)power;  // For REV2 Cars only, 0 < power < 1
+- (void)revGetSkyTXPower:(float)power;  // For REV2 Cars only, 0 < power < 1
+- (void)revSetCalibrationData:(uint8_t)calibrationData;
+- (void)revGetCalibrationData;
 - (void)didReceiveRawCommandData:(NSData *)data;
 
 @end
@@ -104,13 +110,11 @@ typedef enum : NSUInteger {
 
 @optional
 /** Connection Methods **/
-
 - (void)REVDeviceConnected:(REVRobotSDK *)rev;
 - (void)REVDeviceReady:(REVRobotSDK *)rev;
 - (void)REVDeviceDisconnected:(REVRobotSDK *)rev cleanly:(bool)cleanly;
 - (void)REVDeviceFailedToConnect:(REVRobotSDK *)rev error:(NSError *)error;
 - (void)REVDeviceDidReceivedRawData:(REVRobotSDK *)rev data:(NSData*)data;
-
 
 /**REV device call back **/
 - (void)REVRobotDidReceiveBump:(REVRobotSDK *)rev;
@@ -125,7 +129,13 @@ typedef enum : NSUInteger {
 - (void)REVRobot:(REVRobotSDK *)rev didReceivedSoundVolume:(int)volume;
 - (void)REVRobotBeaconStatusUpdated:(id)sender;
 - (void)REVRobot:(REVRobotSDK *)rev didReceivedMotorVoltage:(float)motorVoltage;
+- (void)REVRobot:(REVRobotSDK *)rev didReceivedSkyTXPower:(float)skyTXPower;
+- (void)REVRobot:(REVRobotSDK *)rev didReveivedCalibrationData:(int)calibrationData;
 
+/** spi flash service **/
+- (void)REVRobot:(REVRobotSDK *)rev didReceiverSpiServiceFirmwareVersionOnChip:(NSData*)data;
+- (void)REVRobot:(REVRobotSDK *)rev didReceiveSpiServiceFirmwareToCacheStatus:(NSData*)data;
+- (void)REVRobot:(REVRobotSDK *)rev didReceiveSpiServiceFirmwareFromCacheToID:(NSData*)data;
 
 @end
 

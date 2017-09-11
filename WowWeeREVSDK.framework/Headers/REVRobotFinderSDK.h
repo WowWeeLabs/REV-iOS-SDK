@@ -18,6 +18,7 @@ typedef enum : NSUInteger {
     REVRobotFinder_REVFound = 1,
     REVRobotFinder_RAMPFound,
     REVRobotFinder_LUMIFound,
+    REVRobotFinder_REVAIRFound,
     REVRobotFinder_REVListCleared,
     REVRobotFinder_BluetoothError,
     REVRobotFinder_BluetoothStoppedScanning,
@@ -54,6 +55,7 @@ typedef enum : NSUInteger {
 
 -(REVRobotSDK *)firstConnectedREV;
 -(NSMutableArray *)revFound;
+-(NSMutableArray *)revCarsConnected;
 
 -(void) postNotification:(REVRobotFinderNotificationValue)broadcast;
 -(void) postNotification:(REVRobotFinderNotificationValue)broadcast withData:(id)data ;

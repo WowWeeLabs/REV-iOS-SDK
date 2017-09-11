@@ -1,12 +1,5 @@
 @import Foundation;
 
-FOUNDATION_EXPORT uint16_t const REV_BLUETOOTH_PRODUCT_ID;
-FOUNDATION_EXPORT uint16_t const REV_DFU_BLUETOOTH_PRODUCT_ID;
-FOUNDATION_EXPORT uint16_t const RAMP_BLUETOOTH_PRODUCT_ID;
-FOUNDATION_EXPORT uint16_t const RAMP_DFU_BLUETOOTH_PRODUCT_ID;
-FOUNDATION_EXPORT uint16_t const LUMI_BLUETOOTH_PRODUCT_ID;
-FOUNDATION_EXPORT uint16_t const LUMI_DFU_BLUETOOTH_PRODUCT_ID;
-
 typedef enum : uint8_t {
     kRevDrive_Continuous = 0x78,
     kRevTurnLeftByTime = 0x73,
@@ -34,10 +27,23 @@ typedef enum : uint8_t {
     kRevRampUpdateNotify = 0xa2,
     kRevBeaconStatusUpdate = 0x99,
     kRevGetMotorVoltage = 0xa3,
+    kRevSetSkyTXPower = 0x9a,       // For REV2 cars only
+    kRevGetSkyTXPower = 0x9b,       // For REV2 cars only
+    kRevSetCalibrationData = 0x9c,  // For REV2 cars only
+    kRevGetCalibrationData = 0x9d,  // For REV2 cars only
     
     // For connected broadcast usage
     kRevConnectedBroadcast = 0x28,
 } kRevCommand;
+
+typedef enum : uint8_t {
+    kRev2TXFrontGun         = (1 << 0), // => 00000001
+    kRev2TXGroundBeacon     = (1 << 1), // => 00000010
+    kRev2TXSkyFront         = (1 << 2),  // => 00000100
+    kRev2TXSkyMiddle        = (1 << 3),  // => 00001000
+    kRev2TXSkyBack          = (1 << 4),  // => 00010000
+    kRev2TXSkySide          = (1 << 5)  // => 00100000
+} kRev2TXDirection;
 
 typedef enum : uint8_t {
     kRevDriveCont_FW_Speed1 = 0x00, // Forward slowest

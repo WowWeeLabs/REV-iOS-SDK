@@ -1,21 +1,20 @@
 //
-//  WowWeeREVSDK.h
-//  WowWeeREVSDK
+//  WowweeREVSDK.h
+//  WowweeREVSDK.h
 //
-//  Created by DavidFF Chan on 28/1/2016.
-//  Copyright © 2016 DavidFF Chan. All rights reserved.
+//  Created by Katy Pun on 24/8/15.
+//  Copyright (c) 2015 WowWee. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for WowWeeREVSDK.
-FOUNDATION_EXPORT double WowWeeREVSDKVersionNumber;
+//! Project version number for WowweeREVSDK.
+FOUNDATION_EXPORT double WowweeREVSDKVersionNumber;
 
-//! Project version string for WowWeeREVSDK.
-FOUNDATION_EXPORT const unsigned char WowWeeREVSDKVersionString[];
+//! Project version string for WowweeREVSDK.
+FOUNDATION_EXPORT const unsigned char WowweeREVSDKVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <WowWeeREVSDK/PublicHeader.h>
-
+// In this header, you should import all the public headers of your framework using statements like #import <WowweeREVSDK/PublicHeader.h>
 
 
 #import <WowWeeREVSDK/REVRobotSDK.h>

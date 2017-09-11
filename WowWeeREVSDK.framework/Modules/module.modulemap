@@ -1,5 +1,5 @@
-framework module WowWeeREVSDK {
-  umbrella header "WowWeeREVSDK.h"
+framework module WowweeREVSDK {
+  umbrella header "WowweeREVSDK.h"
 
   export *
   module * { export * }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B243FFE1C5EEC46002C497A /* WowWeeREVSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B243FFD1C5EEC46002C497A /* WowWeeREVSDK.framework */; };
 		0B24401F1C5EECA7002C497A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2440001C5EECA7002C497A /* AppDelegate.m */; };
 		0B2440201C5EECA7002C497A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B2440011C5EECA7002C497A /* Assets.xcassets */; };
 		0B2440211C5EECA7002C497A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B2440031C5EECA7002C497A /* LaunchScreen.storyboard */; };
@@ -25,18 +24,19 @@
 		0B24402D1C5EECA7002C497A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2440191C5EECA7002C497A /* main.m */; };
 		0B24402E1C5EECA7002C497A /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B24401B1C5EECA7002C497A /* Player.m */; };
 		0B24402F1C5EECA7002C497A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B24401E1C5EECA7002C497A /* ViewController.m */; };
-		0B2440311C5EECED002C497A /* WowWeeREVSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B243FFD1C5EEC46002C497A /* WowWeeREVSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0B2440381C5F53CC002C497A /* AIAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2440371C5F53CC002C497A /* AIAssistant.m */; };
+		ABE299521F669387001F9E79 /* WowweeREVSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE299511F669387001F9E79 /* WowweeREVSDK.framework */; };
+		ABE299531F66938C001F9E79 /* WowweeREVSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ABE299511F669387001F9E79 /* WowweeREVSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		0B2440321C5EECEE002C497A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0B2440311C5EECED002C497A /* WowWeeREVSDK.framework in Embed Frameworks */,
+				ABE299531F66938C001F9E79 /* WowweeREVSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		0B243FE31C5EEC2E002C497A /* REVSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REVSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B243FFD1C5EEC46002C497A /* WowWeeREVSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WowWeeREVSDK.framework; sourceTree = SOURCE_ROOT; };
 		0B243FFF1C5EECA7002C497A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0B2440001C5EECA7002C497A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0B2440011C5EECA7002C497A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		0B24401E1C5EECA7002C497A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0B2440361C5F53CC002C497A /* AIAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAssistant.h; sourceTree = "<group>"; };
 		0B2440371C5F53CC002C497A /* AIAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAssistant.m; sourceTree = "<group>"; };
+		ABE299511F669387001F9E79 /* WowweeREVSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WowweeREVSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B243FFE1C5EEC46002C497A /* WowWeeREVSDK.framework in Frameworks */,
+				ABE299521F669387001F9E79 /* WowweeREVSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 		0B243FDA1C5EEC2E002C497A = {
 			isa = PBXGroup;
 			children = (
-				0B243FFD1C5EEC46002C497A /* WowWeeREVSDK.framework */,
+				ABE299511F669387001F9E79 /* WowweeREVSDK.framework */,
 				0B243FE51C5EEC2E002C497A /* REVSampleProject */,
 				0B243FE41C5EEC2E002C497A /* Products */,
 			);
@@ -369,10 +369,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_ENABLE_BUILTIN_FUNCTIONS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -390,10 +392,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_ENABLE_BUILTIN_FUNCTIONS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

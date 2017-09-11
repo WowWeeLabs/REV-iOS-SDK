@@ -15,6 +15,14 @@
 #define kRevHardwareRevisionCharacteristicString                        "hardware"
 #define kRevHardwareRevisionCharacteristicUUID                          0x2A27
 
+// LED service
+#define kLEDServiceString                                         "ledService"
+#define kLEDServiceUUID                                           0xFE00
+#define kLED_RGBLEDCharacteristicString                           "rgbled"
+#define kLED_RGBLEDCharacteristicUUID                             0xFE01
+#define kLED_TracterBeamLEDCharacteristicString                   "tracterbeamled"
+#define kLED_TracterBeamLEDCharacteristicUUID                     0xFE03
+
 typedef enum : uint8_t {
     REVTrackingUserControl = 0x01,
     REVTrackingChase = 0x02,

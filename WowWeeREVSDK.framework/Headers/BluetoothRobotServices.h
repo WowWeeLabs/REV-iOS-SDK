@@ -13,3 +13,4 @@
 #import "BRNuvotonBootloaderService.h"
 #import "BRSettingsService.h"
 #import "YMS128.h"
+#import "BRS130NetworkService.h"
